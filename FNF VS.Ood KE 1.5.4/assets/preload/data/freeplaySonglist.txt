@@ -1,0 +1,6 @@
+Tutorial:gf:1
+come-faith:pasu:1
+faithless:pasu1
+punishment:pasu:1
+bbt:pasu:2
+rattatui:pasu:2
