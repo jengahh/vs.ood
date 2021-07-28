@@ -368,12 +368,12 @@ class PlayState extends MusicBeatState
 		}
 
 		//defaults if no stage was found in chart
-		var stageCheck:String = 'stage';
+		var stageCheck:String = 'kayhamad';
 		
 		if (SONG.stage == null) {
 			switch(storyWeek)
 			{
-				case 2: stageCheck = 'halloween';
+				case 2: stageCheck = 'rat';
 				case 3: stageCheck = 'philly';
 				case 4: stageCheck = 'limo';
 				case 5: if (songLowercase == 'winter-horrorland') {stageCheck = 'mallEvil';} else {stageCheck = 'mall';}
@@ -879,6 +879,9 @@ class PlayState extends MusicBeatState
 				tweenCamIn();
 			case 'ood':
 				dad.y += 108;
+			case 'ood4p':
+				dad.y += 90;
+				dad.x -= 979;
 			case 'dadood':
 				dad.y += 70;
 			case 'dadood1p':

@@ -3,4 +3,5 @@ come-faith:pasu:1
 faithless:pasu:1
 punishment:pasu:1
 bbt:pasu:1
-rattatui:pasu:1
+rattatui:pasu:2
+four:pasu:1

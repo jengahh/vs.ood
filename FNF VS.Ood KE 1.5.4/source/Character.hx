@@ -659,7 +659,26 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -5, 24);
 				addOffset("singLEFT", 17, 15);
 				addOffset("singDOWN", 6, -25);
-			playAnim('idle');
+				playAnim('idle');
+
+			case 'ood4p':
+				tex = Paths.getSparrowAtlas('ood/ood4p','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singDOWN', 'down', 24, false);
+				animation.addByPrefix('singLEFT', 'left', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
+				animation.addByPrefix('attack', 'attack axe', 24, false);
+
+				addOffset('idle', -862, 0);
+				addOffset("singUP", -885, 81);
+				addOffset("singRIGHT", -805, -62);
+				addOffset("singLEFT", -903, 30);
+				addOffset("singDOWN", -883, -111);
+				addOffset("attack", -720, 96);
+				playAnim('idle');
+
 			case 'ood':
 				tex = Paths.getSparrowAtlas('ood/aood','shared');
 				frames = tex;
@@ -675,6 +694,7 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 118, 0);
 				addOffset("singDOWN", 0, -157);
 				playAnim('idle');
+
 		}
 
 		dance();
