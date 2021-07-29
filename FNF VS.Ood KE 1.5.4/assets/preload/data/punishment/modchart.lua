@@ -47,13 +47,13 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 	end
     if bruh then
 		
-        for i=0,3 do
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 65, getActorAngle(i) - 480, 0.6, i)
+        for i=0,43 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 20, getActorAngle(i) - 100, 0.6, i)
 			setActorY(_G['defaultStrum'..i..'Y'] + 25 * math.sin((currentBeat + i*4.2) * math.pi) ,i)
-			setActorX(_G['defaultStrum'..i..'X'] -22* math.cos((currentBeat + i*5.3) * math.pi), i)
+			setActorX(_G['defaultStrum'..i..'X'] -2* math.cos((currentBeat + i*5.3) * math.pi), i)
 			setActorX(_G['defaultStrum'..i..'X'] + 74 * math.sin((currentBeat + i*0) * math.pi), i)
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 99, getActorAngle(i) - 500, 66, i)
-			setActorY(_G['defaultStrum'..i..'X'] -60 * math.cos((currentBeat + i*7.7) * math.pi) ,i)
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 77, getActorAngle(i) - 90, 66, i)
+			
 		end
 		
     end
