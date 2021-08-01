@@ -1084,13 +1084,27 @@ class PlayState extends MusicBeatState
 		healthBarBG.scrollFactor.set();
 		add(healthBarBG);
 
-		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
-			'health', 0, 2);
-		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(FlxColor.BLACK,FlxColor.CYAN );
-		// healthBar
-		add(healthBar);
+        if (SONG.song.toLowerCase()=="four")
+			{
 
+				healthBar = new FlxBar(healthBarBG.x + 4 - healthBarBG.x - healthBarBG.x + 78, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width * 2 - 8), Std.int(healthBarBG.height - 8), this,
+				'health', 0, 4);
+			     healthBar.scrollFactor.set();
+			     healthBar.createFilledBar(FlxColor.BLACK,FlxColor.CYAN);
+		    	//(0xFFFF0000, 0xFF66FF33);
+		    	// healthBar
+		    	add(healthBar);				
+			}
+		else
+			{
+				healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
+				'health', 0, 2);
+		    	healthBar.scrollFactor.set();
+		    	healthBar.createFilledBar(FlxColor.BLACK,FlxColor.CYAN );
+		    	// healthBar
+		    	add(healthBar);
+			}
+		
 		// Add Kade Engine watermark
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " VS.Ood 1.5 | KE " + MainMenuState.kadeEngineVer : ""), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -2156,8 +2170,18 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
-		if (health > 2)
-			health = 2;
+	
+		if (SONG.song.toLowerCase()=="four")
+		{
+		  if (health > 4)
+			 health = 4;
+		}
+		else
+			{
+				if (health > 2)
+					health = 2;
+			}
+
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
@@ -2745,7 +2769,7 @@ class PlayState extends MusicBeatState
 									daNote.destroy();
 							}
 							case 2: 
-								health -= 1;
+								health -= 0.2;
 								FlxG.sound.play(Paths.sound('Death-noise', 'shared'), 0.6);
 								vocals.volume = 0;
 								if (theFunne)
@@ -2984,6 +3008,7 @@ class PlayState extends MusicBeatState
 						{
 							health -= 0.5;
 							FlxG.sound.play(Paths.sound('whoose'));
+							boyfriend.playAnim('dodge', true);
 						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit -= 1;
@@ -2997,6 +3022,7 @@ class PlayState extends MusicBeatState
 						{
 							health -= 0.2;
 							FlxG.sound.play(Paths.sound('whoose'));
+							boyfriend.playAnim('dodge', true);
 						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.50;
@@ -3009,6 +3035,7 @@ class PlayState extends MusicBeatState
 						{
 							health += 0.2;
 							FlxG.sound.play(Paths.sound('whoose'));
+							boyfriend.playAnim('dodge', true);
 						}
 					if (health < 2)
 						health += 0.04;
@@ -3017,8 +3044,9 @@ class PlayState extends MusicBeatState
 				case 'sick':
 					if (daNote.noteType == 2)
 						{
-							health += 0.5;
+							health += 0.7;
 							FlxG.sound.play(Paths.sound('whoose'));
+							boyfriend.playAnim('dodge', true);
 						}
 					if (health < 2)
 						health += 0.1;
@@ -3762,19 +3790,41 @@ class PlayState extends MusicBeatState
 					}
 					else
 						totalNotesHit += 1;
+
+				if (note.noteType == 2)
+					{
+						switch (note.noteData)
+						{
+							case 2:
+								boyfriend.playAnim('dodge', true);
+							case 3:
+								boyfriend.playAnim('dodge', true);
+							case 1:
+								boyfriend.playAnim('dodge', true);
+							case 0:
+								boyfriend.playAnim('dodge', true);
+						}						
+						
+					}
+				else
+					{
+						switch (note.noteData)
+						{
+							case 2:
+								boyfriend.playAnim('singUP', true);
+							case 3:
+								boyfriend.playAnim('singRIGHT', true);
+							case 1:
+								boyfriend.playAnim('singDOWN', true);
+							case 0:
+								boyfriend.playAnim('singLEFT', true);
+						}
+					}
+
 	
 
-					switch (note.noteData)
-					{
-						case 2:
-							boyfriend.playAnim('singUP', true);
-						case 3:
-							boyfriend.playAnim('singRIGHT', true);
-						case 1:
-							boyfriend.playAnim('singDOWN', true);
-						case 0:
-							boyfriend.playAnim('singLEFT', true);
-					}
+
+					
 		
 					#if windows
 					if (luaModchart != null)
