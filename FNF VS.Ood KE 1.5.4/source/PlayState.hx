@@ -1677,7 +1677,8 @@ class PlayState extends MusicBeatState
 				else
 					oldNote = null;
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				var daType = songNotes[3];
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, daType);
 
 				if (!gottaHitNote && PlayStateChangeables.Optimize)
 					continue;
@@ -1694,7 +1695,7 @@ class PlayState extends MusicBeatState
 				{
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
-					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
+					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true, daType);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
 
@@ -2613,17 +2614,37 @@ class PlayState extends MusicBeatState
 								altAnim = '-alt';
 						}
 	
-						switch (Math.abs(daNote.noteData))
-						{
-							case 2:
-								dad.playAnim('singUP' + altAnim, true);
-							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
-							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
-							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
-						}
+						if (daNote.noteType == 2)
+							{
+							  switch (Math.abs(daNote.noteData))
+						      {
+						         case 2:
+							        dad.playAnim('attack', true); //attack axe
+						         case 3:
+							    	dad.playAnim('attack', true);
+						         case 1:
+						       		dad.playAnim('attack', true);
+						         case 0:
+						         	dad.playAnim('attack', true);
+							  }
+							}
+							else
+							{
+								switch (Math.abs(daNote.noteData))
+								{
+									case 2:
+										dad.playAnim('singUP' + altAnim, true); 
+								    case 3:
+										dad.playAnim('singRIGHT' + altAnim, true);
+								    case 1:
+										dad.playAnim('singDOWN' + altAnim, true);
+								    case 0:
+										dad.playAnim('singLEFT' + altAnim, true);
+
+								}
+							}
+							
+						
 						
 						if (FlxG.save.data.cpuStrums)
 						{
@@ -2690,39 +2711,45 @@ class PlayState extends MusicBeatState
 					// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
 	
 					if ((daNote.mustPress && daNote.tooLate && !PlayStateChangeables.useDownscroll || daNote.mustPress && daNote.tooLate && PlayStateChangeables.useDownscroll) && daNote.mustPress)
-					{
-							if (daNote.isSustainNote && daNote.wasGoodHit)
+					
+						switch (daNote.noteType) //you can add as many cases as you want, just make sure the noteType number matches properly!
+						{
+					
+							case 0: //normal, you might wanna add in that replay stuff if you want them to work properly, depends on your kade engine version.
 							{
-								daNote.kill();
-								notes.remove(daNote, true);
-							}
-							else
-							{
-								if (loadRep && daNote.isSustainNote)
-								{
-									// im tired and lazy this sucks I know i'm dumb
-									if (findByTime(daNote.strumTime) != null)
-										totalNotesHit += 1;
-									else
+								if (daNote.isSustainNote && daNote.wasGoodHit)
 									{
-										health -= 0.075;
-										vocals.volume = 0;
-										if (theFunne)
-											noteMiss(daNote.noteData, daNote);
+
+										daNote.kill();
+										notes.remove(daNote, true);
+										daNote.destroy();
+										
 									}
-								}
 								else
-								{
-									health -= 0.075;
-									vocals.volume = 0;
-									if (theFunne)
-										noteMiss(daNote.noteData, daNote);
-								}
+									{
+										if (daNote.mustPress)
+										{
+											health -= 0.075;
+											vocals.volume = 0;
+											if (theFunne)
+												noteMiss(daNote.noteData, daNote);
+
+										}
+									}
+				
+									daNote.active = false;
+									daNote.visible = false;
+				
+									daNote.kill();
+									notes.remove(daNote, true);
+									daNote.destroy();
 							}
-		
-							daNote.visible = false;
-							daNote.kill();
-							notes.remove(daNote, true);
+							case 2: 
+								health -= 1;
+								FlxG.sound.play(Paths.sound('Death-noise', 'shared'), 0.6);
+								vocals.volume = 0;
+								if (theFunne)
+									noteMiss(daNote.noteData, daNote);
 						}
 					
 				});
@@ -2953,6 +2980,11 @@ class PlayState extends MusicBeatState
 					health -= 0.2;
 					ss = false;
 					shits++;
+					if (daNote.noteType == 2)
+						{
+							health -= 0.5;
+							FlxG.sound.play(Paths.sound('whoose'));
+						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit -= 1;
 				case 'bad':
@@ -2961,6 +2993,11 @@ class PlayState extends MusicBeatState
 					health -= 0.06;
 					ss = false;
 					bads++;
+					if (daNote.noteType == 2)
+						{
+							health -= 0.2;
+							FlxG.sound.play(Paths.sound('whoose'));
+						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.50;
 				case 'good':
@@ -2968,11 +3005,21 @@ class PlayState extends MusicBeatState
 					score = 200;
 					ss = false;
 					goods++;
+					if (daNote.noteType == 2)
+						{
+							health += 0.2;
+							FlxG.sound.play(Paths.sound('whoose'));
+						}
 					if (health < 2)
 						health += 0.04;
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.75;
 				case 'sick':
+					if (daNote.noteType == 2)
+						{
+							health += 0.5;
+							FlxG.sound.play(Paths.sound('whoose'));
+						}
 					if (health < 2)
 						health += 0.1;
 					if (FlxG.save.data.accuracyMod == 0)

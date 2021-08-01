@@ -397,7 +397,7 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['mod by ', 'jeng_battery']);
+					createCoolText(['mod by ', 'jeng_battery', 'taeyai']);
 				else
 					createCoolText(['bruh bruh ', ' swag text']);
 			case 7:

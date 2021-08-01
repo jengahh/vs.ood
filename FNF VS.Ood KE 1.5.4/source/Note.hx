@@ -34,16 +34,17 @@ class Note extends FlxSprite
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
+	public var noteType:Int = 0;
 
 	public var rating:String = "shit";
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inCharter:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?noteType:Int = 0, ?inCharter:Bool = false)
 	{
 		super();
 
-		if (prevNote == null)
+		if (prevNote == null)	
 			prevNote = this;
-
+		this.noteType = noteType;
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
 
@@ -117,6 +118,14 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
+			if(noteType == 2) //This code write by TaeYai Go subscribe to her :) https://www.youtube.com/channel/UC_OwYbXr0rkfLzkFl66GBTQ/featured
+				{
+					frames = Paths.getSparrowAtlas('axenote');
+					animation.addByPrefix('greenScroll', 'Green Arrow');
+					animation.addByPrefix('redScroll', 'Red Arrow');
+					animation.addByPrefix('blueScroll', 'Blue Arrow');
+					animation.addByPrefix('purpleScroll', 'Purple Arrow');
+				}
 		}
 
 		switch (noteData)
