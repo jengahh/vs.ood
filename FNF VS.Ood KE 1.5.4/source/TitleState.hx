@@ -162,16 +162,16 @@ class TitleState extends MusicBeatState
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
-		Conductor.changeBPM(120);
+		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite(-291, -97).loadGraphic(Paths.image('bgtitl'));
+		var bg:FlxSprite = new FlxSprite(-291, -80).loadGraphic(Paths.image('bgtitl'));
 		bg.setGraphicSize(Std.int(bg.width * 0.85));
 		bg.antialiasing = true;
 		bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
+		logoBl = new FlxSprite(375, -210);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = true;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
@@ -180,15 +180,16 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-		gfDance.setGraphicSize(Std.int(gfDance.width * 0.2));
+		gfDance = new FlxSprite(FlxG.width * -0.1, FlxG.height * 0.31);
+		gfDance.setGraphicSize(Std.int(gfDance.width * 0.9));
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
 		gfDance.animation.addByPrefix('idle','GF Dancing Beat', 24, false);
 		gfDance.antialiasing = true;
 		gfDance.animation.play('idle');
 		gfDance.updateHitbox();
-		add(gfDance);
+		
 		add(logoBl);
+		add(gfDance);
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -434,15 +435,9 @@ class TitleState extends MusicBeatState
 				addMoreText('Vs.Ood');
 			// credTextShit.text += '\vs.';
 			case 15:
-				addMoreText('R'); 
-			// credTextShit.text += '\nRemix';
+				addMoreText('FINAL'); 
+			// credTextShit.text += '\nFINAL';
 			case 16:
-				addMoreText('E'); 
-			// credTextShit.text += '\nRemix';
-			case 17:
-				addMoreText('M I X'); 
-			// credTextShit.text += '\nRemix';
-			case 18:
 				skipIntro();
 		}
 	}
