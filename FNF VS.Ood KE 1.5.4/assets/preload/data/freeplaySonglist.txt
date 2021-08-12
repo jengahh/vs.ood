@@ -1,7 +1,7 @@
-Tutorial:gf:1
-come-faith:pasu:1
-faithless:pasu:1
-punishment:pasu:1
+come-faith:ood:1
+faithless:ood:1
+punishment:ood:1
+four:ood:1
+five:ood:1
 bbt:pasu:1
 rattatui:pasu:2
-four:pasu:1
