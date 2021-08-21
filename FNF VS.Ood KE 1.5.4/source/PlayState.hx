@@ -177,6 +177,7 @@ class PlayState extends MusicBeatState
 	var trainSound:FlxSound;
 
 	var limo:FlxSprite;
+	var knife:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
 	var songName:FlxText;
@@ -734,6 +735,15 @@ class PlayState extends MusicBeatState
 					bgf.scrollFactor.set(1, 1);
 					bgf.active = false;
 
+					knife = new FlxSprite(-240, 98);
+					knife.frames = Paths.getSparrowAtlas('ood/bg bop');
+					knife.animation.addByPrefix('idle','faithless', 24, false);
+					
+					knife.antialiasing = true;
+					knife.scrollFactor.set(1, 1);
+					
+
+
 					add(bg);
 					add(kayha);
 					add(bgb);
@@ -1006,6 +1016,8 @@ class PlayState extends MusicBeatState
 
 			add(dad);
 			add(boyfriend);
+			if (curStage == 'kayha')
+			add(knife);
 		}
 
 
@@ -4008,12 +4020,16 @@ class PlayState extends MusicBeatState
 			{
 				case 1:
 					dad.playAnim('faithless',true);
+					knife.animation.play('idle');
 				case 160:
 					dad.playAnim('faithless',true);
+					knife.animation.play('idle');
 				case 456:
 					dad.playAnim('faithless',true);
+					knife.animation.play('idle');
 				case 744:
 					dad.playAnim('faithless',true);
+					knife.animation.play('idle');
 			}
 
 		if (SONG.song.toLowerCase() == 'faithless')
