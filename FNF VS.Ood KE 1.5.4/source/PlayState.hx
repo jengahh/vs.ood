@@ -747,6 +747,8 @@ class PlayState extends MusicBeatState
 					bottomBoppers.scrollFactor.set(1, 1);
 					add(bottomBoppers);
 
+					
+
 		
 			}
 
@@ -973,7 +975,7 @@ class PlayState extends MusicBeatState
 			case 'kayhamad':
 				// trailArea.scrollFactor.set();
 
-				var phee = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				var phee = new FlxTrail(dad, null, 2, 12, 0.15, 0.0);
 				// phee.changeValuesEnabled(false, false, false, false);
 				// phee.changeGraphic()
 				add(phee);
