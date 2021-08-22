@@ -1,0 +1,7 @@
+come-faith:ood:1
+faithless:ood:1
+punishment:ood:1
+four:ood:1
+five:ood:1
+bbt:pasu:1
+rattatui:pasu:2
