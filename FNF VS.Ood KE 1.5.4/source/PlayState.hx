@@ -735,8 +735,8 @@ class PlayState extends MusicBeatState
 					bgf.scrollFactor.set(1, 1);
 					bgf.active = false;
 
-					knife = new FlxSprite(-240, 98);
-					knife.frames = Paths.getSparrowAtlas('ood/bg bop');
+					knife = new FlxSprite(-600, 140);
+					knife.frames = Paths.getSparrowAtlas('ood/faithless');
 					knife.animation.addByPrefix('idle','faithless', 24, false);
 					
 					knife.antialiasing = true;
@@ -969,7 +969,7 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil':
 				if(FlxG.save.data.distractions){
 				// trailArea.scrollFactor.set();
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				var evilTrail = new FlxTrail(dad, null, 2, 11, 0.5, 0.07);
 				// evilTrail.changeValuesEnabled(false, false, false, false);
 				// evilTrail.changeGraphic()
 				add(evilTrail);
@@ -4020,36 +4020,40 @@ class PlayState extends MusicBeatState
 			{
 				case 1:
 					dad.playAnim('faithless',true);
+				case 14:
 					knife.animation.play('idle');
-				case 160:
+				case 167:
 					dad.playAnim('faithless',true);
+				case 182:
 					knife.animation.play('idle');
 				case 456:
 					dad.playAnim('faithless',true);
+				case 472:
 					knife.animation.play('idle');
 				case 744:
 					dad.playAnim('faithless',true);
+				case 760:
 					knife.animation.play('idle');
 			}
 
 		if (SONG.song.toLowerCase() == 'faithless')
 			switch (curStep)
 			{
-				case 3:
+				case 1:
 					defaultCamZoom = 1;
-				case 4:
+				case 10:
 					defaultCamZoom = 0.9;
-				case 160:
+				case 167:
 					defaultCamZoom = 1.3;
-				case 164:
+				case 179:
 					defaultCamZoom = 0.9;
 				case 456:
 					defaultCamZoom = 1.2;
-				case 460:
+				case 468:
 					defaultCamZoom = 0.9;
 				case 744:
 					defaultCamZoom = 1.1;
-				case 749:
+				case 765:
 					defaultCamZoom = 0.8;
 			}
 		// yes this updates every step.
