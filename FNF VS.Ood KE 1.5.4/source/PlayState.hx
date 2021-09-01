@@ -714,10 +714,10 @@ class PlayState extends MusicBeatState
 			{
 				defaultCamZoom = 0.9;
 					curStage = 'kayha';
-					var bg:FlxSprite = new FlxSprite(-600, -220).loadGraphic(Paths.image('ood/kayhabg'));
-					bg.setGraphicSize(Std.int(bg.width * 1.2));
+					var bg:FlxSprite = new FlxSprite(-600, -250).loadGraphic(Paths.image('ood/kayhabg'));
+					bg.setGraphicSize(Std.int(bg.width * 1.9));
 					bg.antialiasing = true;
-					bg.scrollFactor.set(0.1 , 0.1);
+					bg.scrollFactor.set(0.9 , 0.9);
 					bg.active = true;
 
 					var kayha:FlxSprite = new FlxSprite(-600, -38).loadGraphic(Paths.image('ood/kayha'));
@@ -725,17 +725,17 @@ class PlayState extends MusicBeatState
 					kayha.scrollFactor.set(0.1, 0.7);
 					kayha.active = false;
 
-					var bgb:FlxSprite = new FlxSprite(-600, -228).loadGraphic(Paths.image('ood/streetnaided'));
+					var bgb:FlxSprite = new FlxSprite(-576, -200).loadGraphic(Paths.image('ood/streetnaided'));
 					bgb.antialiasing = true;
-					bgb.scrollFactor.set(1.2, 1);
+					bgb.scrollFactor.set(1.3, 1);
 					bgb.active = false;
 
 					var bgf:FlxSprite = new FlxSprite(-598, -199).loadGraphic(Paths.image('ood/kayhalol'));
 					bgf.antialiasing = true;
-					bgf.scrollFactor.set(1, 1);
+					bgf.scrollFactor.set(0.9, 0.9);
 					bgf.active = false;
 
-					knife = new FlxSprite(-600, 140);
+					knife = new FlxSprite(-660, 140);
 					knife.frames = Paths.getSparrowAtlas('ood/faithless');
 					knife.animation.addByPrefix('idle','faithless', 24, false);
 					
@@ -775,6 +775,50 @@ class PlayState extends MusicBeatState
 					add(bg);
 
 			}
+			case 'final' :
+			{
+				defaultCamZoom = 0.68;
+					curStage = 'final';
+					var o:FlxSprite = new FlxSprite(-641, -221).loadGraphic(Paths.image('phase5/orn'));
+					o.setGraphicSize(Std.int(o.width * 1.9));
+					o.scrollFactor.set(0.9, 0.9);
+					o.antialiasing = true;
+					o.active = true;
+
+					var bg:FlxSprite = new FlxSprite(-731, -160).loadGraphic(Paths.image('phase5/fvkinbg'));
+					bg.setGraphicSize(Std.int(bg.width * 1));
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.antialiasing = true;
+					bg.active = true;
+
+					var kayha:FlxSprite = new FlxSprite(-620, 20).loadGraphic(Paths.image('phase5/biu'));
+					kayha.antialiasing = true;
+					kayha.scrollFactor.set(0.8, 0.8);
+					kayha.active = false;
+
+					var bgf:FlxSprite = new FlxSprite(-600, -250).loadGraphic(Paths.image('phase5/fo'));
+					bgf.antialiasing = true;
+					bgf.scrollFactor.set(0.9, 0.9);
+					bgf.active = false;
+
+					bottomBoppers = new FlxSprite( 3500, -100);
+					bottomBoppers.frames = Paths.getSparrowAtlas('phase5/al');
+					bottomBoppers.animation.addByPrefix('idle','alian0', 24, false);
+					bottomBoppers.setGraphicSize(Std.int(bottomBoppers.width * 0.8));
+					bottomBoppers.animation.play('idle');
+					bottomBoppers.antialiasing = true;
+					bottomBoppers.scrollFactor.set(1.3, 0.9);
+
+					add(o);
+					add(bg);
+					add(bottomBoppers);
+					add(kayha);
+					add(bgf);
+
+					
+					
+			}
+
 			case 'toug':
 			{
 				defaultCamZoom = 0.8;
@@ -788,11 +832,11 @@ class PlayState extends MusicBeatState
 			}
 			case 'rat':
 			{
-				defaultCamZoom = 1.3;
+				defaultCamZoom = 1;
 				curStage = 'rat';
-				var bg:FlxSprite = new FlxSprite(-300, -80).loadGraphic(Paths.image('ratt/rat'));
+				var bg:FlxSprite = new FlxSprite(-281, -70).loadGraphic(Paths.image('ratt/rat'));
 				bg.antialiasing = true;
-				bg.scrollFactor.set(1, 1);
+				bg.scrollFactor.set(0.9, 0.9);
 				bg.active = false;
 				add(bg);
 
@@ -872,6 +916,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-car';
 			case 'gf-christmas':
 				curGf = 'gf-christmas';
+			case 'gf-special':
+				curGf = 'gf-special';				
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
 			default:
@@ -905,18 +951,17 @@ class PlayState extends MusicBeatState
 			case 'dad':
 				camPos.x += 400;
 			case 'rattatui':
-				dad.y += 380;
-				camPos.y += 370;
-				camPos.x += 150;
-				tweenCamIn();
+				dad.y += 370;
+				camPos.y += -37;
+				camPos.x += 15;
 			case 'ood':
 				dad.y += 108;
 			case 'ood4p':
 				dad.y += 90;
 				dad.x -= 979;
 			case 'ood5p':
-				dad.y += -56;
-				dad.x -= -56;
+				dad.y += -180;
+				dad.x += -200;
 			case 'dadood':
 				dad.y += 65;
 			case 'dadood1p':
@@ -985,7 +1030,7 @@ class PlayState extends MusicBeatState
 			case 'kayhamad':
 				// trailArea.scrollFactor.set();
 
-				var phee = new FlxTrail(dad, null, 2, 12, 0.15, 0.0);
+				var phee = new FlxTrail(dad, null, 2, 11, 0.5, 0.07);
 				// phee.changeValuesEnabled(false, false, false, false);
 				// phee.changeGraphic()
 				add(phee);
@@ -993,11 +1038,24 @@ class PlayState extends MusicBeatState
 
 				boyfriend.x += 290;
 				gf.x += 300;
-			case 'kayha':
+
+			case 'final':
+				// trailArea.scrollFactor.set();
+
+				var phee = new FlxTrail(dad, null, 3, 12, 0.8, 0.15);
+				// phee.changeValuesEnabled(false, false, false, false);
+				// phee.changeGraphic()
+				add(phee);
+				// phee.scrollFactor.set(1.1, 1.1);
+
 				boyfriend.x += 290;
 				gf.x += 300;
+
+			case 'kayha':
+				boyfriend.x += 283;
+				gf.x += 290;
 			case 'rat':
-				boyfriend.x += 290;
+				boyfriend.x += 260;
 				gf.x += 290;
 			case 'toug':
 				boyfriend.x += 695;
@@ -2125,7 +2183,7 @@ class PlayState extends MusicBeatState
 			if (iconP1.animation.curAnim.name == 'bf-old')
 				iconP1.animation.play(SONG.player1);
 			else
-				iconP1.animation.play('bf-old');
+				iconP1.animation.play('pasu');
 		}
 
 		switch (curStage)
@@ -2469,7 +2527,7 @@ class PlayState extends MusicBeatState
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'rat':
-						camFollow.y = boyfriend.getMidpoint().y + 87;
+						camFollow.y = boyfriend.getMidpoint().y + 10;
 					case 'school':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
@@ -4056,6 +4114,27 @@ class PlayState extends MusicBeatState
 				case 765:
 					defaultCamZoom = 0.8;
 			}
+
+			if (SONG.song.toLowerCase() == 'rattatui')
+				switch (curStep)
+				{
+					case 1:
+						defaultCamZoom = 1.3;
+					case 256:
+						defaultCamZoom = 1;
+					case 384:
+						defaultCamZoom = 1.2;
+					case 395:
+						defaultCamZoom = 1;
+					case 456:
+						defaultCamZoom = 1.2;
+					case 469:
+						defaultCamZoom = 0.9;
+					case 579:
+						defaultCamZoom = 1.2;
+					case 624:
+						defaultCamZoom = 0.98;
+				}
 		// yes this updates every step.
 		// yes this is bad
 		// but i'm doing it to update misses and accuracy
@@ -4172,6 +4251,12 @@ class PlayState extends MusicBeatState
 					santa.animation.play('idle', true);
 				}
 			case 'kayha':
+				if(FlxG.save.data.distractions)
+					{
+					bottomBoppers.animation.play('idle', true);
+					}
+
+			case 'final':
 				if(FlxG.save.data.distractions)
 					{
 					bottomBoppers.animation.play('idle', true);

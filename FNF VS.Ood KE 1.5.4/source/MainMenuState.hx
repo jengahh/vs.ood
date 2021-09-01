@@ -100,7 +100,7 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(FlxG.width * -0.2, FlxG.height * 1.6);
+			var menuItem:FlxSprite = new FlxSprite(-20, 60 + (i * 160));
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -108,7 +108,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			menuItem.scrollFactor.set();
+			menuItem.scrollFactor.set(0, 0.15);
 			menuItem.antialiasing = true;
 			if (firstStart)
 				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
@@ -118,7 +118,6 @@ class MainMenuState extends MusicBeatState
 					}});
 			else
 				menuItem.y = 60 + (i * 160);
-				menuItem.x = 60 + (i * -20);
 		}
 
 		firstStart = false;
