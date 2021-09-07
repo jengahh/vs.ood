@@ -5,3 +5,4 @@ four:ood:1
 five:ood5p:1
 bbt:mamafrog:1
 rattatui:rattatui:2
+oodpurgation:oodpurgation:4

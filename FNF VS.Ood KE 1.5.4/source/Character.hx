@@ -351,15 +351,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
+				
 				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
+				addOffset("singUP", -29, 19);
 				addOffset("singRIGHT", -38, -7);
 				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
+				addOffset("singDOWN", -10, -41);
+				addOffset("singUPmiss",  12, 24);
+				addOffset("singRIGHTmiss", 12, 24);
 				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
+				addOffset("singDOWNmiss", 12, 24);
 				addOffset("hey", 7, 4);
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
@@ -394,14 +395,14 @@ class Character extends FlxSprite
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
 				addOffset('idle', -5);
-				addOffset("singUP", -29, 19);
+				addOffset("singUP", -29, 27);
 				addOffset("singRIGHT", -38, -7);
 				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -41);
-				addOffset("singUPmiss",  12, 24);
-				addOffset("singRIGHTmiss", 12, 24);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", -29, 27);
+				addOffset("singRIGHTmiss", -30, 21);
 				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", 12, 24);
+				addOffset("singDOWNmiss", -11, -19);
 				addOffset("hey", 7, 4);
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
@@ -697,10 +698,26 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 
 				addOffset('idle', 0, 0);
-				addOffset("singUP", -73, 122);
-				addOffset("singRIGHT", -183, -36);
-				addOffset("singLEFT", 220, 26);
-				addOffset("singDOWN", -265, -111);
+				addOffset("singUP", -30, 87);
+				addOffset("singRIGHT", -71, 8);
+				addOffset("singLEFT", 155, 40);
+				addOffset("singDOWN", -226, -46);
+				playAnim('idle');
+
+			case 'oodpurgation':
+				tex = Paths.getSparrowAtlas('phase5/oodpurgation','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singDOWN', 'down', 24, false);
+				animation.addByPrefix('singLEFT', 'left', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -30, 87);
+				addOffset("singRIGHT", -71, 8);
+				addOffset("singLEFT", 155, 40);
+				addOffset("singDOWN", -226, -46);
 				playAnim('idle');
 
 			case 'ood':

@@ -27,6 +27,7 @@ class HealthIcon extends FlxSprite
 		animation.add('ood', [13, 13], 0, false, isPlayer);
 		animation.add('ood4p', [19, 19], 0, false, isPlayer);
 		animation.add('ood5p', [14, 15], 0, false, isPlayer);
+		animation.add('oodpurgation', [24, 25], 0, false, isPlayer);
 		animation.add('dadood', [12, 13], 0, false, isPlayer);
 		animation.add('dadood1p', [12, 13], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);

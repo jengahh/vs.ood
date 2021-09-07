@@ -376,7 +376,7 @@ class PlayState extends MusicBeatState
 			{
 				case 2: stageCheck = 'rat';
 				case 3: stageCheck = 'philly';
-				case 4: stageCheck = 'limo';
+				case 4: stageCheck = 'wvoid';
 				case 5: if (songLowercase == 'winter-horrorland') {stageCheck = 'mallEvil';} else {stageCheck = 'mall';}
 				case 6: if (songLowercase == 'thorns') {stageCheck = 'schoolEvil';} else {stageCheck = 'school';}
 				//i should check if its stage (but this is when none is found in chart anyway)
@@ -775,6 +775,18 @@ class PlayState extends MusicBeatState
 					add(bg);
 
 			}
+			case 'wvoid':
+			{
+				defaultCamZoom = 0.7;
+					curStage = 'wvoid';
+					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('phase5/w'));
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					bg.active = false;
+					add(bg);
+
+			}
 			case 'final' :
 			{
 				defaultCamZoom = 0.68;
@@ -903,7 +915,7 @@ class PlayState extends MusicBeatState
 		if (SONG.gfVersion == null) {
 			switch(storyWeek)
 			{
-				case 4: gfCheck = 'gf-car';
+				case 4: gfCheck = 'gf-special';
 				case 5: gfCheck = 'gf-christmas';
 				case 6: gfCheck = 'gf-pixel';
 			}
@@ -960,6 +972,9 @@ class PlayState extends MusicBeatState
 				dad.y += 90;
 				dad.x -= 979;
 			case 'ood5p':
+				dad.y += -180;
+				dad.x += -200;
+			case 'oodpurgation':
 				dad.y += -180;
 				dad.x += -200;
 			case 'dadood':
@@ -1040,6 +1055,17 @@ class PlayState extends MusicBeatState
 				gf.x += 300;
 
 			case 'final':
+				// trailArea.scrollFactor.set();
+
+				var phee = new FlxTrail(dad, null, 3, 12, 0.8, 0.15);
+				// phee.changeValuesEnabled(false, false, false, false);
+				// phee.changeGraphic()
+				add(phee);
+				// phee.scrollFactor.set(1.1, 1.1);
+
+				boyfriend.x += 290;
+				gf.x += 300;
+			case 'wvoid':
 				// trailArea.scrollFactor.set();
 
 				var phee = new FlxTrail(dad, null, 3, 12, 0.8, 0.15);
