@@ -20,6 +20,7 @@ class HealthIcon extends FlxSprite
 
 		animation.add('bf', [0, 1], 0, false, isPlayer);
 		animation.add('bf-rat', [0, 1], 0, false, isPlayer);
+		animation.add('bf-car', [0, 1], 0, false, isPlayer);
 		animation.add('bf-special', [0, 1], 0, false, isPlayer);
 		animation.add('pasu', [10,11], 0, false, isPlayer);
 		animation.add('rattatui', [6,7], 0, false, isPlayer);

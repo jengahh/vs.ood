@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bg bop punish.png">
+	<!-- Created with Adobe Animate version 21.0.2.37893 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bg bop punnish0000" x="0" y="0" width="862" height="603" pivotX="349.5" pivotY="98.25" frameX="0" frameY="-25" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0001" x="862" y="0" width="862" height="610" frameX="0" frameY="-18" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0002" x="0" y="610" width="862" height="611" frameX="0" frameY="-17" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0003" x="862" y="610" width="866" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0004" x="0" y="1237" width="865" height="628" frameX="0" frameY="0" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0005" x="865" y="1237" width="865" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0006" x="0" y="1237" width="865" height="628" frameX="0" frameY="0" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0007" x="865" y="1237" width="865" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0008" x="0" y="1237" width="865" height="628" frameX="0" frameY="0" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0009" x="865" y="1237" width="865" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0010" x="0" y="1237" width="865" height="628" frameX="0" frameY="0" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0011" x="865" y="1237" width="865" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0012" x="0" y="1237" width="865" height="628" frameX="0" frameY="0" frameWidth="866" frameHeight="628"/>
+	<SubTexture name="bg bop punnish0013" x="865" y="1237" width="865" height="627" frameX="0" frameY="-1" frameWidth="866" frameHeight="628"/>
+</TextureAtlas>

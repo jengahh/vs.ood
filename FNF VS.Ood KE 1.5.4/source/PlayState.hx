@@ -178,6 +178,7 @@ class PlayState extends MusicBeatState
 
 	var limo:FlxSprite;
 	var knife:FlxSprite;
+	var bop:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
 	var songName:FlxText;
@@ -761,11 +762,62 @@ class PlayState extends MusicBeatState
 
 		
 			}
-
+			case 'kayhapun' :
+				{
+					defaultCamZoom = 0.81;
+						curStage = 'kayhapun';
+						var bg:FlxSprite = new FlxSprite(-600, -250).loadGraphic(Paths.image('ood/kayhabg'));
+						bg.setGraphicSize(Std.int(bg.width * 1.9));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.9 , 0.9);
+						bg.active = true;
+	
+						var kayha:FlxSprite = new FlxSprite(-600, -38).loadGraphic(Paths.image('ood/kayha'));
+						kayha.antialiasing = true;
+						kayha.scrollFactor.set(0.1, 0.7);
+						kayha.active = false;
+	
+						var bgb:FlxSprite = new FlxSprite(-576, -200).loadGraphic(Paths.image('ood/streetnaided'));
+						bgb.antialiasing = true;
+						bgb.scrollFactor.set(1.3, 1);
+						bgb.active = false;
+	
+						var bgf:FlxSprite = new FlxSprite(-598, -199).loadGraphic(Paths.image('ood/kayhalol'));
+						bgf.antialiasing = true;
+						bgf.scrollFactor.set(0.9, 0.9);
+						bgf.active = false;
+	
+						bop = new FlxSprite(-280, 360);
+						bop.frames = Paths.getSparrowAtlas('ood/boppunish');
+						bop.animation.addByPrefix('idle','bop', 24, false);
+						bop.animation.play('idle');
+						bop.antialiasing = true;
+						bop.scrollFactor.set(0.1, 0.2);
+						
+						
+	
+	
+						add(bg);
+						add(kayha);
+						add(bgb);
+						add(bgf);
+	
+						bottomBoppers = new FlxSprite(-240, 98);
+						bottomBoppers.frames = Paths.getSparrowAtlas('ood/bg bop punish');
+						bottomBoppers.animation.addByPrefix('idle','bg bop punnish', 24, false);
+						bottomBoppers.animation.play('idle');
+						bottomBoppers.antialiasing = true;
+						bottomBoppers.scrollFactor.set(0.9, 0.9);
+						add(bottomBoppers);
+	
+						
+	
+			
+				}
 
 			case 'kayhamad':
 			{
-				defaultCamZoom = 0.8;
+				defaultCamZoom = 0.9;
 					curStage = 'kayhamad';
 					var bg:FlxSprite = new FlxSprite(-600, -250).loadGraphic(Paths.image('ood/kayhabgt'));
 					bg.setGraphicSize(Std.int(bg.width * 1.9));
@@ -778,12 +830,12 @@ class PlayState extends MusicBeatState
 					kayha.scrollFactor.set(0.1, 0.7);
 					kayha.active = false;
 
-					var bgb:FlxSprite = new FlxSprite(-310, -230).loadGraphic(Paths.image('ood/streetnaidedt'));
+					var bgb:FlxSprite = new FlxSprite(-310, -170).loadGraphic(Paths.image('ood/streetnaidedt'));
 					bgb.antialiasing = true;
 					bgb.scrollFactor.set(1.3, 0.9);
 					bgb.active = false;
 
-					var bgf:FlxSprite = new FlxSprite(-200, -100).loadGraphic(Paths.image('ood/kayhalolt'));
+					var bgf:FlxSprite = new FlxSprite(-150, -170).loadGraphic(Paths.image('ood/kayhalolt'));
 					bgf.antialiasing = true;
 					bgf.scrollFactor.set(0.9, 0.9);
 					bgf.active = false;
@@ -821,26 +873,26 @@ class PlayState extends MusicBeatState
 					o.antialiasing = true;
 					o.active = true;
 
-					var bg:FlxSprite = new FlxSprite(-720, -250).loadGraphic(Paths.image('phase5/fvkinbg'));
+					var bg:FlxSprite = new FlxSprite(-720, -290).loadGraphic(Paths.image('phase5/fvkinbg'));
 					bg.setGraphicSize(Std.int(bg.width * 1));
 					bg.scrollFactor.set(0.9, 0.9);
 					bg.antialiasing = true;
 					bg.active = true;
 
-					var kayha:FlxSprite = new FlxSprite(-620, 20).loadGraphic(Paths.image('phase5/biu'));
+					var kayha:FlxSprite = new FlxSprite(-620, 30).loadGraphic(Paths.image('phase5/biu'));
 					kayha.setGraphicSize(Std.int(kayha.width * 1.2));
 					kayha.antialiasing = true;
 					kayha.scrollFactor.set(0.8, 0.8);
 					kayha.active = false;
 
-					var bgf:FlxSprite = new FlxSprite(-600, -250).loadGraphic(Paths.image('phase5/fo'));
+					var bgf:FlxSprite = new FlxSprite(-600, -240).loadGraphic(Paths.image('phase5/fo'));
 					bgf.antialiasing = true;
 					bgf.scrollFactor.set(0.9, 0.9);
 					bgf.active = false;
 
-					bottomBoppers = new FlxSprite( 3500, -100);
+					bottomBoppers = new FlxSprite( -200, -150);
 					bottomBoppers.frames = Paths.getSparrowAtlas('phase5/al');
-					bottomBoppers.animation.addByPrefix('idle','alian0', 24, false);
+					bottomBoppers.animation.addByPrefix('idle','alian', 24, false);
 					bottomBoppers.setGraphicSize(Std.int(bottomBoppers.width * 0.8));
 					bottomBoppers.animation.play('idle');
 					bottomBoppers.antialiasing = true;
@@ -995,10 +1047,12 @@ class PlayState extends MusicBeatState
 				dad.y += 108;
 			case 'ood4p':
 				dad.y += 90;
-				dad.x -= 979;
+				dad.x -= 958;
+				camPos.x += 50;
 			case 'ood5p':
-				dad.y += -180;
+				dad.y += -170;
 				dad.x += -200;
+				camPos.y += 32;
 			case 'oodpurgation':
 				dad.y += -180;
 				dad.x += -200;
@@ -1049,8 +1103,8 @@ class PlayState extends MusicBeatState
 			case 'school':
 				boyfriend.x += 200;
 				boyfriend.y += 220;
-				gf.x += 180;
-				gf.y += 300;
+				gf.x -= -300;
+				gf.y -= 25;
 			case 'schoolEvil':
 				if(FlxG.save.data.distractions){
 				// trailArea.scrollFactor.set();
@@ -1066,7 +1120,17 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
-
+			case 'kayhapun':
+					// trailArea.scrollFactor.set();
+	
+					var phee = new FlxTrail(dad, null, 2, 11, 0.5, 0.07);
+					// phee.changeValuesEnabled(false, false, false, false);
+					// phee.changeGraphic()
+					add(phee);
+					// phee.scrollFactor.set(1.1, 1.1);
+	
+					boyfriend.x += 290;
+					gf.x += 350;
 			case 'kayhamad':
 				// trailArea.scrollFactor.set();
 
@@ -1076,8 +1140,9 @@ class PlayState extends MusicBeatState
 				add(phee);
 				// phee.scrollFactor.set(1.1, 1.1);
 
-				boyfriend.x += 290;
-				gf.x += 300;
+				boyfriend.x += 280;
+				gf.x += 450;
+				gf.x -= 32;
 
 			case 'final':
 				// trailArea.scrollFactor.set();
@@ -1089,6 +1154,7 @@ class PlayState extends MusicBeatState
 				// phee.scrollFactor.set(1.1, 1.1);
 
 				boyfriend.x +=301;
+				boyfriend.y +=10;
 				gf.x += 310;
 			case 'wvoid':
 				// trailArea.scrollFactor.set();
@@ -1127,6 +1193,8 @@ class PlayState extends MusicBeatState
 			add(boyfriend);
 			if (curStage == 'kayha')
 			add(knife);
+			if (curStage == 'kayhapun')
+				add(bop);
 		}
 
 
@@ -2579,6 +2647,8 @@ class PlayState extends MusicBeatState
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'rat':
 						camFollow.y = boyfriend.getMidpoint().y + 10;
+					case 'kayhamad':
+						camFollow.x = boyfriend.getMidpoint().x - 42;
 					case 'final':
 						camFollow.x = boyfriend.getMidpoint().x  -37;
 						camFollow.y = boyfriend.getMidpoint().y  -5;
@@ -4343,7 +4413,12 @@ class PlayState extends MusicBeatState
 					{
 					bottomBoppers.animation.play('idle', true);
 					}
-
+			case 'kayhapun':
+				if(FlxG.save.data.distractions)
+					{
+					bop.animation.play('idle', true);
+					bottomBoppers.animation.play('idle', true);
+					}
 			case 'final':
 				if(FlxG.save.data.distractions)
 					{
