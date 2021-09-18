@@ -235,6 +235,9 @@ class PlayState extends MusicBeatState
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
 
+	//FLY BITCH
+	private var floatvalve:Float = 0;
+
 
 	override public function create()
 	{
@@ -1297,24 +1300,181 @@ class PlayState extends MusicBeatState
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		add(healthBarBG);
-
-        if (SONG.song.toLowerCase()=="four")
-			{
-
-				healthBar = new FlxBar(healthBarBG.x + 4 - healthBarBG.x - healthBarBG.x + 78, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width * 2 - 8), Std.int(healthBarBG.height - 8), this,
-				'health', 0, 4);
-			     healthBar.scrollFactor.set();
-			     healthBar.createFilledBar(FlxColor.BLACK,FlxColor.CYAN);
-		    	//(0xFFFF0000, 0xFF66FF33);
-		    	// healthBar
-		    	add(healthBar);				
-			}
-		else
 			{
 				healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 				'health', 0, 2);
 		    	healthBar.scrollFactor.set();
-		    	healthBar.createFilledBar(FlxColor.BLACK,FlxColor.CYAN );
+				var p1ColorBar:FlxColor = new FlxColor();
+				var p2ColorBar:FlxColor = new FlxColor();
+
+				switch (SONG.player1) 
+			{
+			case 'bf' | 'bf-car' | 'bf-christmas':
+			{
+				p1ColorBar.setRGB(49, 176, 209, 255);
+			}
+			case 'bf-pixel':
+			{
+				p1ColorBar.setRGB(123, 214, 246, 255);
+			}
+			case 'gf' | 'gf-pixel' | 'gf-christmas':
+			{
+				p1ColorBar.setRGB(165, 0, 77, 255);
+			}
+			case 'monster' | 'monster-christmas':
+			{
+				p1ColorBar.setRGB(243, 255, 110, 255);
+			}
+			case 'parents-christmas':
+			{
+				p1ColorBar.setRGB(188, 95, 183, 255);
+			}
+			case 'dad':
+			{
+				p1ColorBar.setRGB(255, 80, 84, 255);
+			}
+			case 'mom' | 'mom-car':
+			{
+				p1ColorBar.setRGB(216, 85, 142, 255);
+			}
+			case 'tankman':
+			{
+				p1ColorBar.setRGB(127, 127, 127, 255);
+			}
+			case 'face':
+			{
+				p1ColorBar.setRGB(161, 161, 161, 255);
+			}
+			case 'bf-old':
+			{
+				p1ColorBar.setRGB(233, 255, 72, 255);
+			}
+			case 'spirit':
+			{
+				p1ColorBar.setRGB(255, 60, 110, 255);
+			}
+			case 'senpai' | 'senpai-angry':
+			{
+				p1ColorBar.setRGB(255, 170, 111, 255);
+			}
+			case 'pico':
+			{
+				p1ColorBar.setRGB(183, 216, 85, 255);
+			}
+			case 'spooky':
+			{
+				p1ColorBar.setRGB(213, 126, 0, 255);
+			}
+			case 'dadood' | 'dadood1p' | 'ood':
+				{
+					p1ColorBar.setRGB(47, 41, 41, 255);
+				}
+			case 'rattatui':
+			{
+				p1ColorBar.setRGB(158, 20, 228, 255);
+			}
+			case 'mamafrog':
+			{
+				p1ColorBar.setRGB(183, 216, 85, 255);
+			}
+			case 'ood4p':
+			{
+				p1ColorBar.setRGB(199, 27, 27, 255);
+			}
+			case 'ood5p':
+			{
+				p1ColorBar.setRGB(131, 255, 78, 255);
+			}
+			default:
+			{
+				p1ColorBar.setRGB(47, 41, 41, 255);
+			}
+			}
+			switch (SONG.player2) 
+		{
+			case 'bf' | 'bf-car' | 'bf-christmas':
+			{
+				p2ColorBar.setRGB(49, 176, 209, 255);
+			}
+			case 'bf-pixel':
+			{
+				p2ColorBar.setRGB(123, 214, 246, 255);
+			}
+			case 'gf' | 'gf-pixel' | 'gf-christmas':
+			{
+				p2ColorBar.setRGB(165, 0, 77, 255);
+			}
+			case 'monster' | 'monster-christmas':
+			{
+				p2ColorBar.setRGB(243, 255, 110, 255);
+			}
+			case 'parents-christmas':
+			{
+				p2ColorBar.setRGB(255, 99 ,71 , 255);
+			}
+			case 'dad':
+			{
+				p2ColorBar.setRGB(255, 80, 84, 255);
+			}
+			case 'mom' | 'mom-car':
+			{
+				p2ColorBar.setRGB(216, 85, 142, 255);
+			}
+			case 'tankman':
+			{
+				p2ColorBar.setRGB(127, 127, 127, 255);
+			}
+			case 'face':
+			{
+				p2ColorBar.setRGB(161, 161, 161, 255);
+			}
+			case 'bf-old':
+			{
+				p2ColorBar.setRGB(233, 255, 72, 255);
+			}
+			case 'spirit':
+			{
+				p2ColorBar.setRGB(255, 60, 110, 255);
+			}
+			case 'senpai' | 'senpai-angry':
+			{
+				p2ColorBar.setRGB(255, 170, 111, 255);
+			}
+			case 'pico':
+			{
+				p2ColorBar.setRGB(183, 216, 85, 255);
+			}
+			case 'spooky':
+			{
+				p2ColorBar.setRGB(213, 126, 0, 255);
+			}
+			case 'dadood' | 'dadood1p':
+				{
+					p2ColorBar.setRGB(47, 41, 41, 255);
+				}
+			case 'rattatui':
+			{
+				p2ColorBar.setRGB(158, 20, 228, 255);
+			}
+			case 'mamafrog':
+			{
+				p2ColorBar.setRGB(183, 216, 85, 255);
+			}
+			case 'ood4p':
+			{
+				p2ColorBar.setRGB(199, 27, 27, 255);
+			}
+			case 'ood5p':
+			{
+				p2ColorBar.setRGB(131, 255, 78, 255);
+			}
+			default:
+			{
+				p2ColorBar.setRGB(255, 0, 0, 255);
+			}
+		}
+
+			healthBar.createFilledBar(p2ColorBar, p1ColorBar);
 		    	// healthBar
 		    	add(healthBar);
 			}
@@ -2201,6 +2361,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		floatvalve += 0.06;
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2373,6 +2534,10 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
+		if (dad.curCharacter == "ood5p"){
+			dad.y += Math.sin(floatvalve);
+			dad.y += Math.cos(floatvalve);
+		}
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
 		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
 
@@ -2385,16 +2550,8 @@ class PlayState extends MusicBeatState
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
 	
-		if (SONG.song.toLowerCase()=="four")
-		{
-		  if (health > 4)
-			 health = 4;
-		}
-		else
-			{
 				if (health > 2)
 					health = 2;
-			}
 
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
@@ -2857,23 +3014,7 @@ class PlayState extends MusicBeatState
 								altAnim = '-alt';
 						}
 	
-						if (daNote.noteType == 2)
-							{
-							  switch (Math.abs(daNote.noteData))
-						      {
-						         case 2:
-							        dad.playAnim('attack', true); //attack axe
-						         case 3:
-							    	dad.playAnim('attack', true);
-						         case 1:
-						       		dad.playAnim('attack', true);
-						         case 0:
-						         	dad.playAnim('attack', true);
-							  }
-							}
-							else
-							{
-								switch (Math.abs(daNote.noteData))
+							switch (Math.abs(daNote.noteData))
 								{
 									case 2:
 										dad.playAnim('singUP' + altAnim, true); 
@@ -2885,7 +3026,7 @@ class PlayState extends MusicBeatState
 										dad.playAnim('singLEFT' + altAnim, true);
 
 								}
-							}
+							
 							
 						
 						
@@ -2993,6 +3134,10 @@ class PlayState extends MusicBeatState
 								vocals.volume = 0;
 								if (theFunne)
 									noteMiss(daNote.noteData, daNote);
+							case 3: 
+								daNote.kill();
+								notes.remove(daNote, true);
+								daNote.destroy();
 						}
 					
 				});
@@ -3225,9 +3370,7 @@ class PlayState extends MusicBeatState
 					shits++;
 					if (daNote.noteType == 2)
 						{
-							health -= 0.5;
-							FlxG.sound.play(Paths.sound('whoose'));
-							boyfriend.playAnim('dodge', true);
+							axenote();
 						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit -= 1;
@@ -3239,9 +3382,7 @@ class PlayState extends MusicBeatState
 					bads++;
 					if (daNote.noteType == 2)
 						{
-							health -= 0.2;
-							FlxG.sound.play(Paths.sound('whoose'));
-							boyfriend.playAnim('dodge', true);
+							axenote();
 						}
 					if (FlxG.save.data.accuracyMod == 0)
 						totalNotesHit += 0.50;
@@ -3252,9 +3393,11 @@ class PlayState extends MusicBeatState
 					goods++;
 					if (daNote.noteType == 2)
 						{
-							health += 0.2;
-							FlxG.sound.play(Paths.sound('whoose'));
-							boyfriend.playAnim('dodge', true);
+							axenote();
+						}
+					if (daNote.noteType == 3)
+						{
+							susnote();
 						}
 					if (health < 2)
 						health += 0.04;
@@ -3263,9 +3406,11 @@ class PlayState extends MusicBeatState
 				case 'sick':
 					if (daNote.noteType == 2)
 						{
-							health += 0.7;
-							FlxG.sound.play(Paths.sound('whoose'));
-							boyfriend.playAnim('dodge', true);
+							axenote();
+						}
+					if (daNote.noteType == 3)
+						{
+							susnote();
 						}
 					if (health < 2)
 						health += 0.1;
@@ -4166,6 +4311,28 @@ class PlayState extends MusicBeatState
 			startedMoving = false;
 		}
 	}
+
+	function susnote():Void
+	{
+		var hpgobra:Float = 0;
+		new FlxTimer().start(0.0001, function(swagTimer:FlxTimer)
+			{
+				health -= 0.0030;
+				hpgobra += 0.0014;
+				if (hpgobra < 0.5)
+				{
+					swagTimer.reset();
+				}
+			});
+	}
+
+	function axenote():Void
+		{
+			dad.playAnim('attack', true);
+			FlxG.sound.play(Paths.sound('whoose'));
+			boyfriend.playAnim('dodge', true);
+
+		}
 
 	function lightningStrikeShit():Void
 	{

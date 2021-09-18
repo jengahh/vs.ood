@@ -126,6 +126,14 @@ class Note extends FlxSprite
 					animation.addByPrefix('blueScroll', 'Blue Arrow');
 					animation.addByPrefix('purpleScroll', 'Purple Arrow');
 				}
+			if(noteType == 3) //This code write by TaeYai Go subscribe to her :) https://www.youtube.com/channel/UC_OwYbXr0rkfLzkFl66GBTQ/featured
+				{
+					frames = Paths.getSparrowAtlas('rednot');
+					animation.addByPrefix('greenScroll', 'Green Arrow');
+					animation.addByPrefix('redScroll', 'Red Arrow');
+					animation.addByPrefix('blueScroll', 'Blue Arrow');
+					animation.addByPrefix('purpleScroll', 'Purple Arrow');
+				}
 		}
 
 		switch (noteData)
