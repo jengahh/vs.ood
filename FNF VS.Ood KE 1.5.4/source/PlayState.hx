@@ -4405,7 +4405,12 @@ class PlayState extends MusicBeatState
 				case 765:
 					defaultCamZoom = 0.8;
 			}
-
+		if (SONG.song.toLowerCase() == 'five')
+			switch (curStep)
+			{
+				case 783 | 903 | 905 | 907 | 909 | 1423:
+					FlxG.camera.flash(FlxColor.WHITE, 1);
+			}
 			if (SONG.song.toLowerCase() == 'rattatui')
 				switch (curStep)
 				{
