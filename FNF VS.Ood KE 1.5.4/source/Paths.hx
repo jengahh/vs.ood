@@ -75,6 +75,11 @@ class Paths
 		return getPath('data/$key.xml', TEXT, library);
 	}
 
+	inline static public function lyric(key:String, ?library:String)
+		{
+			return getPath('data/$key.lyric', TEXT, library);
+		}
+
 	inline static public function json(key:String, ?library:String)
 	{
 		return getPath('data/$key.json', TEXT, library);
