@@ -370,6 +370,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'come-faith':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('come-faith/dia'));
 		}
 
 		//defaults if no stage was found in chart
@@ -1590,6 +1592,8 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
+					schoolIntro(doof);
+				case 'come-faith':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -4367,21 +4371,9 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'faithless')
 			switch (curStep)
 			{
-				case 1:
+				case 1 | 167 | 182 | 456 | 744:
 					dad.playAnim('faithless',true);
-				case 14:
-					knife.animation.play('idle');
-				case 167:
-					dad.playAnim('faithless',true);
-				case 182:
-					knife.animation.play('idle');
-				case 456:
-					dad.playAnim('faithless',true);
-				case 472:
-					knife.animation.play('idle');
-				case 744:
-					dad.playAnim('faithless',true);
-				case 760:
+				case 14 | 182 | 472 | 760:
 					knife.animation.play('idle');
 			}
 

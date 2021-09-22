@@ -1,0 +1,4 @@
+:odd:normal:Welcome To land of Truth!
+:effect:rightSide:
+:bf:normal:Beep!
+:bg:ded::effect:hidden::noChar:default:

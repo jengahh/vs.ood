@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="odd.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Odd10000" x="25" y="25" width="402" height="486"/>
+	<SubTexture name="Odd20000" x="452" y="25" width="611" height="549"/>
+	<SubTexture name="Odd2.50000" x="1088" y="25" width="432" height="488"/>
+	<SubTexture name="Odd30000" x="1545" y="25" width="405" height="496"/>
+	<SubTexture name="odd40000" x="25" y="599" width="646" height="510"/>
+	<SubTexture name="odd50000" x="696" y="599" width="592" height="544"/>
+</TextureAtlas>
