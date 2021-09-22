@@ -790,7 +790,7 @@ class PlayState extends MusicBeatState
 						bgf.scrollFactor.set(0.9, 0.9);
 						bgf.active = false;
 	
-						bop = new FlxSprite(-280, 360);
+						bop = new FlxSprite(-280, 394);
 						bop.frames = Paths.getSparrowAtlas('ood/boppunish');
 						bop.animation.addByPrefix('idle','bop', 24, false);
 						bop.animation.play('idle');
@@ -805,7 +805,7 @@ class PlayState extends MusicBeatState
 						add(bgb);
 						add(bgf);
 	
-						bottomBoppers = new FlxSprite(-240, 98);
+						bottomBoppers = new FlxSprite(-250, 98);
 						bottomBoppers.frames = Paths.getSparrowAtlas('ood/bg bop punish');
 						bottomBoppers.animation.addByPrefix('idle','bg bop punnish', 24, false);
 						bottomBoppers.animation.play('idle');
