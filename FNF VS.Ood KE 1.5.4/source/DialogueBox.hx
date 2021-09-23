@@ -364,7 +364,7 @@ class DialogueBox extends FlxSpriteGroup
 			case "noChar":
 				portraitNOCHAR.playFrame("default");
 				changeSound('momText',0);
-			
+			//:bg:ded::effect:hidden::noChar:default:
 			case "effect":
 				switch(curAnim){
 					case "hidden":

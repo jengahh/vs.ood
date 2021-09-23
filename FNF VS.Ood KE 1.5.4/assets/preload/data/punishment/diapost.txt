@@ -1,0 +1,8 @@
+:effect:fadeIn:
+:noChar:default:Leader Leader! We in trouble now, Police here Leader!
+:odd:angry:What?! Police? Give me an axe sonk. i can handle it
+:bg:police
+:noChar:default: *Sonk Died*
+:noChar:default: *GF faint from explod*
+:noChar:default: *BF Hurt a liitle*
+::

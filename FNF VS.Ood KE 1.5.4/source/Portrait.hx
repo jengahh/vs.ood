@@ -55,10 +55,8 @@ class Portrait extends FlxSprite
                 addAnim('normal','Boyfriend portrait enter instance 1');
                 animation.play("normal");
             case "gf":
-                addAnim("happy", "Neo gf happy");
-                addAnim("sad", "Neo gf sad");
-                addAnim("blush", "Neo gf blush");
-                animation.play("happy");
+                addAnim("normal", "Girlfriend portrait enter instance 1");
+                animation.play("normal");
             case "odd":
                 addAnim("normal", "Odd1");
                 addAnim("mad", "Odd2");
