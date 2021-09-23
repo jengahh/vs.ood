@@ -1,23 +1,21 @@
-:odd:normal:Welcome To land of Truth!
+:odd:normal:Welcome to the Society of truth believers, you two.
 :effect:fadeIn:0.4
 :effect:rightSide:
 :effect:enterStageRight:0.8
 :bf:normal:Beep!
-:gf:normal:What?
-:odd:normal:Come on Don’t ask to much Because We are One who knows the truth!! , 
-:odd:normal:THE TRUTH!!!
-:odd:normal:The Truth Never Died. The Truth That The World Decline.
-:odd:normal:The Truth That...
-:odd:normal:alien IS REAL!
+:gf:normal:What do you mean?
+:odd:normal:Come on. Don’t be suspicious of us. We’re the enlightened who knows truth.
+:odd:normal:The TRUTH!!!
+:odd:normal:The truth never dies. The truth that the world rejected
+:odd:normal:The aliens are real!
 :bf:normal:Beep Boop Beep
-:gf:normal:Yes I agree With You Boyfriend
-:odd:normal:Wait a sec.
-:odd:normal:You Are Boyfriend?
-:odd:normal:YOU ARE REAL BOYFRIEND?
-:odd:normal:WOAH you gonna be kidding
+:gf:normal:I agree with you, boyfriend.
+:odd:normal:Wait a second
+:odd:normal:You’re the REAL BOYFRIEND???? 
+:odd:normal:I can’t believe you’re real!
 :bf:normal:Beep
-:odd:normal:Welp, Lets Rap Battle Because I want to Rap With you So much.
+:odd:normal:Well, why don’t we sing together? I’ve been wanting to battle with you for so long.
 :bf:normal:Beep...
-:gf: *sigh*
-:odd:normal:Hey You Idiot Go get some speaker and microphone!
+:gf:normal:* sigh *
+:odd:normal:and to you idiots behind me get the damn speakers and mic
 

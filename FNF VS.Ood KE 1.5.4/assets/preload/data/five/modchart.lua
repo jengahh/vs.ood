@@ -253,26 +253,14 @@ function stepHit (step)
             tweenFadeIn(i,1,0.01)
         end
     end
-    if step == 1041 or step == 1048 or step == 1055 then
-        for i=4,7 do
-        tweenPosYAngle(4, _G['defaultStrum4Y'] + 50,getActorAngle(4), 0.01, i)
-        tweenPosYAngle(5, _G['defaultStrum5Y'] + 20,getActorAngle(5), 0.01, i)
-        tweenPosYAngle(6, _G['defaultStrum6Y'] - 20,getActorAngle(6), 0.01, i)
-        tweenPosYAngle(7, _G['defaultStrum7Y'] - 50,getActorAngle(7), 0.01, i)
-        end
-    end
-    if step == 1045 or step == 1063 then
-        for i=4,7 do
-        tweenPosYAngle(4, _G['defaultStrum4Y'] - 50,getActorAngle(4), 0.01, i)
-        tweenPosYAngle(5, _G['defaultStrum5Y'] - 20,getActorAngle(5), 0.01, i)
-        tweenPosYAngle(6, _G['defaultStrum6Y'] + 20,getActorAngle(6), 0.5, i)
-        tweenPosYAngle(7, _G['defaultStrum7Y'] + 50,getActorAngle(7), 0.01, i)
-        end
+    if step == 1041 then
+        swap = true
     end
     if step == 1055 or step == 1087 then
         for i=4,7 do
         tweenPosYAngle(i, _G['defaultStrum'..i..'Y'], 0, 0.42, 'setDefaultY')
         end
+        swap = false
     end
     if step == 1167 then
         reset()

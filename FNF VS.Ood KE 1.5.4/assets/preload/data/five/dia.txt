@@ -1,10 +1,20 @@
 :noChar:default:...
-:noChar:default:
+:flash:white
+:noChar:default:*ood wakes up* 
+:noChar:default:*bf has been teleport* 
+:effect:fadeIn:0.4
+:effect:rightSide:
+:effect:enterStageRight:0.8
 :bf:normal:beep? Beep boop 
-:odd:god:I don’t care now because I have a POWER AND THE KEY NOW
+:odd:god:I don’t have to mind it because I have received THE POWER and this KEY.
 :bf:normal:Boop beep!?
-:odd:god:She mine now
+:noChar:default:*bf try to call gf...*
+:noChar:default:*but nobody came....*  
+:bf:normal:Boop bop!!
+:odd:god:Looking for your GF?
+:odd:god:Too Bad!
+:odd:god:She is now MINE.
 :bf:normal:beep!!!!!!
-:noChar:default: *bf angry and throw the mic*
-:odd:god:What? I don’t feel anything um how about we end this now
-:odd:god:Lets see that you can handle the music of Desperate Punishment!
+:noChar:default: *bf gets angry and attemps to throw mic*
+:odd:god:I didn’t feel anything at all from that. Let’s end this altogether. 
+:odd:god:you look down and shame us with THIS TUNE OF DESPERATE PUNISHMENT.

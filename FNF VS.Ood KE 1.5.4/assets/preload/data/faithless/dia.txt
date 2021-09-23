@@ -1,14 +1,16 @@
-:odd:normal:Hey..Not bad at all
-:bf:normal:Beep Boop
-:odd:normal:Wait what are you talking about?
+:odd:normal:Hey! Not bad for a dwarf!
+:bf:normal:Beep boop 
+:odd:normal:Huh? What did you say again?
 :bf:normal:beep boop boop beep boop!
-:odd:mad:You not believe what I told you in the song!?
+:odd:mad:You… did not believe what the song I sang told you?
 :bf:normal:boop boop 
-:odd:mad:Ohh I get it now
+:odd:mad:OH, I get it
 :odd:point:YOU ARE FAITHLESS RIGHT?. 
-:odd:mad:Hey Keep your eyes on that girl!
+:odd:mad:And I thought I could trust you.
+:odd:mad:The truth believers, keep an eye on this girl.
 :gf:normal:!!
 :bf:normal:Beep??
-:odd:mad:Don't worry.We don’t hurt the girl but WE just not ok what you said
-:odd:mad:Ok lets continue ours battle And im Gonna Teach you a lesson Boyfriend
+:odd:mad:Don’t worry. We won’t hurt her. We’re just not happy with what you said.
+:odd:mad:With that out of the way, let’s move on to the next song. 
+:odd:point:I’ll teach you how the truth came to be
 :bf:normal:......

@@ -1,9 +1,9 @@
-:odd:axe:GO TO HELL BF! (throw an axe)
-:noChar:default: *bf use mic to protect himself*
-:odd:axe:Woah not bad.. 
-:odd:axe:You the real Rapper
-:noChar:default: *Odd Fell down*
+:odd:axe:DIE, BOYFRIEND! DIE! *about to throw axe but*
+:noChar:default: *bf throws mic to defend himself*
+:odd:axe:*injured* You’re quite a challenge to deal with. You’re so good I swear you could’ve-
+:noChar:default: *Ood shakes and faints*
 :bf:normal: Beep boop beep 
-:noChar:default: *bf try to wake gf up*
+:noChar:default: *bf try to wakes girlfriend up*
 :bf:normal: Beep!!!! ??
+:flash:cyan
 :noChar:default: *Blue Light Just come at Odd and Than Flash*

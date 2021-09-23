@@ -392,6 +392,15 @@ class DialogueBox extends FlxSpriteGroup
 				if (this.sound != null) this.sound.stop();
 				sound = new FlxSound().loadEmbedded(Sound.fromFile("assets/shared/images/BG/" + curAnim + ".ogg"));
 				sound.play();
+			case "flash":
+				switch(curAnim){
+					case "white":
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+					case "blue":
+						FlxG.camera.flash(FlxColor.BLUE, 1);
+					case "cyan":
+						FlxG.camera.flash(FlxColor.CYAN, 1);	
+				}
 			case "music":
 				skipDialogue = true;
 				switch(curAnim){
