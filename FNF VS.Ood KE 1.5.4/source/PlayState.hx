@@ -404,12 +404,12 @@ class PlayState extends MusicBeatState
 			case 'punishment':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('punishment/dia'));
 				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('punishment/diapost'));
-			case 'four':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('four/dia'));
-				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('four/diapost'));
-			case 'five':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('five/dia'));
-				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('five/diapost'));
+			case 'probation':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('probation/dia'));
+				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('probation/diapost'));
+			case 'desperate':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('desperate/dia'));
+				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('desperate/diapost'));
 		}
 
 		//defaults if no stage was found in chart
@@ -830,7 +830,7 @@ class PlayState extends MusicBeatState
 						bgf.scrollFactor.set(0.9, 0.9);
 						bgf.active = false;
 	
-						bop = new FlxSprite(-280, 394);
+						bop = new FlxSprite(-280, 425);
 						bop.frames = Paths.getSparrowAtlas('ood/boppunish');
 						bop.animation.addByPrefix('idle','bop', 24, false);
 						bop.animation.play('idle');
@@ -1654,9 +1654,9 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'punishment':
 					schoolIntro(doof);
-				case 'four':
+				case 'probation':
 					schoolIntro(doof);
-				case 'five':
+				case 'desperate':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -3335,7 +3335,7 @@ class PlayState extends MusicBeatState
 					transOut = FlxTransitionableState.defaultTransOut;
 					switch(SONG.song.toLowerCase())
 					{
-						case "five":
+						case "desperate":
 							endCutscene(doof2);
 							fReturn = "story";
 					default:
@@ -3411,9 +3411,9 @@ class PlayState extends MusicBeatState
 
 					switch(SONG.song.toLowerCase())
                     {
-					    case "four":
+					    case "probation":
 				            endCutscene(doof2);
-						case "five":
+						case "desperate":
 							endCutscene(doof2);
 						default:
                             LoadingState.loadAndSwitchState(new PlayState());
@@ -4508,7 +4508,7 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'faithless')
 			switch (curStep)
 			{
-				case 1 | 167 | 182 | 456 | 744:
+				case 1 | 167 | 456 | 744:
 					dad.playAnim('faithless',true);
 				case 14 | 182 | 472 | 760:
 					knife.animation.play('idle');
@@ -4534,7 +4534,7 @@ class PlayState extends MusicBeatState
 				case 765:
 					defaultCamZoom = 0.8;
 			}
-		if (SONG.song.toLowerCase() == 'five')
+		if (SONG.song.toLowerCase() == 'desperate')
 			switch (curStep)
 			{
 				case 783 | 903 | 905 | 907 | 909 | 1423:

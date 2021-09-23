@@ -1,8 +1,8 @@
 come-faith:dadood:1
 faithless:dadood:1
 punishment:ood:1
-four:ood4p:1
-five:ood5p:3
+probation:ood4p:1
+desperate:ood5p:3
 bbt:mamafrog:1
 rattatui:rattatui:2
 oodpurgation:oodpurgation:4
