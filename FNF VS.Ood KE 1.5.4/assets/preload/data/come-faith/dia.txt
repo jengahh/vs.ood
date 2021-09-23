@@ -1,0 +1,23 @@
+:odd:normal:Welcome To land of Truth!
+:effect:fadeIn:0.4
+:effect:rightSide:
+:effect:enterStageRight:0.8
+:bf:normal:Beep!
+:gf:normal:What?
+:odd:normal:Come on Don’t ask to much Because We are One who knows the truth!! , 
+:odd:normal:THE TRUTH!!!
+:odd:normal:The Truth Never Died. The Truth That The World Decline.
+:odd:normal:The Truth That...
+:odd:normal:alien IS REAL!
+:bf:normal:Beep Boop Beep
+:gf:normal:Yes I agree With You Boyfriend
+:odd:normal:Wait a sec.
+:odd:normal:You Are Boyfriend?
+:odd:normal:YOU ARE REAL BOYFRIEND?
+:odd:normal:WOAH you gonna be kidding
+:bf:normal:Beep
+:odd:normal:Welp, Lets Rap Battle Because I want to Rap With you So much.
+:bf:normal:Beep...
+:gf: *sigh*
+:odd:normal:Hey You Idiot Go get some speaker and microphone!
+

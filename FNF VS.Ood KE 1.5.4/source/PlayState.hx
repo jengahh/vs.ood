@@ -148,6 +148,7 @@ class PlayState extends MusicBeatState
 	private var totalNotesHitDefault:Float = 0;
 	private var totalPlayed:Int = 0;
 	private var ss:Bool = false;
+	var fReturn:String;
 
 
 	private var healthBarBG:FlxSprite;
@@ -168,6 +169,8 @@ class PlayState extends MusicBeatState
 	var currentFrames:Int = 0;
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	var usesEndDialogue:Bool = false;
+	var dialogueEnd:Array<String> = ['ayooooo', 'swagcool'];
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -206,6 +209,7 @@ class PlayState extends MusicBeatState
 	public static var theFunne:Bool = true;
 	var funneEffect:FlxSprite;
 	var inCutscene:Bool = false;
+	var postDialoguePath:String;
 	public static var repPresses:Int = 0;
 	public static var repReleases:Int = 0;
 
@@ -230,6 +234,17 @@ class PlayState extends MusicBeatState
 
 	private var executeModchart = false;
 
+	var hasLyrics:Bool = false;
+
+	var lyricSteps:Array<String>;
+	var curLyrStep:String = '';
+	var lyrText:String = '';
+	var lyrAdded:Bool = false;
+
+	var lyrObj:FlxText;
+
+	var doof2:DialogueBox;
+
 	// API stuff
 	
 	public function addObject(object:FlxBasic) { add(object); }
@@ -249,6 +264,18 @@ class PlayState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
+		hasLyrics = FileSystem.exists(Paths.lyric(PlayState.SONG.song.toLowerCase()  + "/lyrics"));
+		trace('Lyric File: ' + hasLyrics + " - " + Paths.lyric(PlayState.SONG.song.toLowerCase() + "/lyrics"));
+
+		lyricSteps = null;
+		if (hasLyrics)
+		{
+			lyricSteps = CoolUtil.coolTextFile(Paths.lyric(PlayState.SONG.song.toLowerCase() + "/lyrics"));
+			var splitStep:Array<String> = lyricSteps[0].split(":");
+			curLyrStep = splitStep[1];
+			lyrText = lyricSteps[0].substr(splitStep[1].length + 2).trim();
+		}
+
 		if (!isStoryMode)
 		{
 			sicks = 0;
@@ -257,7 +284,7 @@ class PlayState extends MusicBeatState
 			goods = 0;
 		}
 		misses = 0;
-
+		lyrAdded = false;
 		repPresses = 0;
 		repReleases = 0;
 
@@ -370,6 +397,19 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'come-faith':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('come-faith/dia'));
+			case 'faithless':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('faithless/dia'));
+			case 'punishment':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('punishment/dia'));
+				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('punishment/diapost'));
+			case 'four':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('four/dia'));
+				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('four/diapost'));
+			case 'five':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('five/dia'));
+				dialogueEnd = CoolUtil.coolTextFile(Paths.txt('five/diapost'));
 		}
 
 		//defaults if no stage was found in chart
@@ -1222,6 +1262,12 @@ class PlayState extends MusicBeatState
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
 
+		doof2 = new DialogueBox(false, dialogueEnd);
+		// doof.x += 70;
+		// doof.y = FlxG.height * 0.5;
+		doof2.scrollFactor.set();
+		doof2.finishThing = endReturn;
+
 		Conductor.songPosition = -5000;
 		
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
@@ -1526,6 +1572,16 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		add(iconP2);
 
+		lyrObj = new FlxText(0, 0, 0, "", 30);
+		lyrObj.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		lyrObj.scrollFactor.set();
+		lyrObj.alignment = CENTER;
+		lyrObj.screenCenter();
+		lyrObj.x -= 200;
+		lyrObj.y += 200;
+		add(lyrObj);
+		lyrObj.text = '';
+
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
@@ -1534,6 +1590,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		doof2.cameras = [camHUD];
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1590,6 +1647,16 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				case 'thorns':
+					schoolIntro(doof);
+				case 'come-faith':
+					schoolIntro(doof);
+				case 'faithless':
+					schoolIntro(doof);
+				case 'punishment':
+					schoolIntro(doof);
+				case 'four':
+					schoolIntro(doof);
+				case 'five':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -1928,7 +1995,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 		}
 
-		FlxG.sound.music.onComplete = endSong;
+			FlxG.sound.music.onComplete = endSong;
 		vocals.play();
 
 		// Song duration in a float, useful for the time left feature
@@ -3159,10 +3226,36 @@ class PlayState extends MusicBeatState
 			keyShit();
 
 
-		#if debug
-		if (FlxG.keys.justPressed.ONE)
+		
+		if (FlxG.keys.justPressed.C)
 			endSong();
-		#end
+		
+	}
+	function endCutscene(dialogueBox:DialogueBox){
+
+		trace("endCutscene");
+	//	var black:FlxSprite = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+	//	black.scrollFactor.set(0);
+		inCutscene = true;
+		for (i in strumLineNotes)
+			i.visible = false;
+		healthBar.visible = false;
+		healthBarBG.visible = false;
+		iconP2.visible = false;
+		iconP1.visible = false;
+		camZooming = false;
+		paused = true;
+		vocals.stop();
+		FlxG.sound.music.stop();
+		prevCamFollow = camFollow;
+		FlxTransitionableState.skipNextTransIn = true;
+		FlxTransitionableState.skipNextTransOut = true;
+		new FlxTimer().start(0.5, function(tmr:FlxTimer)
+		{
+			paused = true;
+			add(dialogueBox);
+		});
+
 	}
 
 	function endSong():Void
@@ -3237,10 +3330,19 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
+					//endCutscene(doof2);
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
+					switch(SONG.song.toLowerCase())
+					{
+						case "five":
+							endCutscene(doof2);
+							fReturn = "story";
+					default:
+							FlxG.switchState(new MainMenuState());
+					}
 
-					paused = true;
+					/*paused = true;
 
 					FlxG.sound.music.stop();
 					vocals.stop();
@@ -3250,7 +3352,7 @@ class PlayState extends MusicBeatState
 					{
 						FlxG.sound.playMusic(Paths.music('freakyMenu'));
 						FlxG.switchState(new MainMenuState());
-					}
+					}*/
 
 					#if windows
 					if (luaModchart != null)
@@ -3305,8 +3407,17 @@ class PlayState extends MusicBeatState
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
+					fReturn = "play";
 
-					LoadingState.loadAndSwitchState(new PlayState());
+					switch(SONG.song.toLowerCase())
+                    {
+					    case "four":
+				            endCutscene(doof2);
+						case "five":
+							endCutscene(doof2);
+						default:
+                            LoadingState.loadAndSwitchState(new PlayState());
+                     }
 				}
 			}
 			else
@@ -4312,6 +4423,23 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+	function endReturn(){
+
+		switch(fReturn){
+			case "play":
+				LoadingState.loadAndSwitchState(new PlayState());
+			case "story":
+			
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.switchState(new StoryMenuState());
+			
+
+			case "free":
+			FlxG.switchState(new FreeplayState());
+		}
+
+	}
+
 	function susnote():Void
 	{
 		var hpgobra:Float = 0;
@@ -4329,7 +4457,6 @@ class PlayState extends MusicBeatState
 	function axenote():Void
 		{
 			dad.playAnim('attack', true);
-			FlxG.sound.play(Paths.sound('whoose'));
 			boyfriend.playAnim('dodge', true);
 
 		}
@@ -4364,24 +4491,26 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		if ((("" +curStep) == curLyrStep) && hasLyrics)
+			{
+				if (lyrAdded = false)
+				{
+					lyrAdded = true;
+				}
+				lyrObj.text = lyrText;
+				trace(lyrText);
+				lyricSteps.remove(lyricSteps[0]);
+				var splitStep:Array<String> = lyricSteps[0].split(":");
+				curLyrStep = splitStep[1];
+				lyrText = lyricSteps[0].substr(splitStep[1].length + 2).trim();
+			}
+
 		if (SONG.song.toLowerCase() == 'faithless')
 			switch (curStep)
 			{
-				case 1:
+				case 1 | 167 | 182 | 456 | 744:
 					dad.playAnim('faithless',true);
-				case 14:
-					knife.animation.play('idle');
-				case 167:
-					dad.playAnim('faithless',true);
-				case 182:
-					knife.animation.play('idle');
-				case 456:
-					dad.playAnim('faithless',true);
-				case 472:
-					knife.animation.play('idle');
-				case 744:
-					dad.playAnim('faithless',true);
-				case 760:
+				case 14 | 182 | 472 | 760:
 					knife.animation.play('idle');
 			}
 
