@@ -57,6 +57,9 @@ class Portrait extends FlxSprite
             case "gf":
                 addAnim("normal", "Girlfriend portrait enter instance 1");
                 animation.play("normal");
+            case "gfgod":
+                addAnim("normal", "gfgod");
+                animation.play("normal");
             case "odd":
                 addAnim("normal", "Odd1");
                 addAnim("mad", "Odd2");

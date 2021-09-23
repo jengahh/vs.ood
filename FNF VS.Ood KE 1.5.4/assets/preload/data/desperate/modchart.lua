@@ -256,13 +256,12 @@ function stepHit (step)
     if step == 1041 then
         swap = true
     end
-    if step == 1055 or step == 1087 then
-        for i=4,7 do
-        tweenPosYAngle(i, _G['defaultStrum'..i..'Y'], 0, 0.42, 'setDefaultY')
-        end
-        swap = false
+    if step == 1055 then
+        spinpog = true
     end
     if step == 1167 then
+        spinpog = false
+        swap = false
         reset()
         for i=0,7 do
         tweenFadeIn(i,1,0.1)

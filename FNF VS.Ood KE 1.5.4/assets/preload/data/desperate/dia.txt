@@ -6,6 +6,9 @@
 :effect:rightSide:
 :effect:enterStageRight:0.8
 :bf:normal:beep? Beep boop 
+:effect:fadeIn:0.4
+:effect:rightSide:
+:effect:enterStageLeft:0.8
 :odd:god:I don’t have to mind it because I have received THE POWER and this KEY.
 :bf:normal:Boop beep!?
 :noChar:default:*bf try to call gf...*

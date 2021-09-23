@@ -252,7 +252,7 @@ class PlayState extends MusicBeatState
 
 	//FLY BITCH
 	private var floatvalve:Float = 0;
-
+	private var floatvalve2:Float = 0;
 
 	override public function create()
 	{
@@ -1589,6 +1589,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		lyrObj.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		doof2.cameras = [camHUD];
 		if (FlxG.save.data.songPosition)
@@ -2429,6 +2430,7 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 		floatvalve += 0.06;
+		floatvalve2 += 0.01;
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2604,6 +2606,10 @@ class PlayState extends MusicBeatState
 		if (dad.curCharacter == "ood5p"){
 			dad.y += Math.sin(floatvalve);
 			dad.y += Math.cos(floatvalve);
+		}
+		if (dad.curCharacter == "oodpurgation"){
+			dad.x += Math.sin(floatvalve2);
+			dad.y -= Math.cos(floatvalve);
 		}
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
 		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
@@ -3227,8 +3233,8 @@ class PlayState extends MusicBeatState
 
 
 		
-		if (FlxG.keys.justPressed.C)
-			endSong();
+		//if (FlxG.keys.justPressed.C)
+			//endSong();
 		
 	}
 	function endCutscene(dialogueBox:DialogueBox){
@@ -4566,7 +4572,9 @@ class PlayState extends MusicBeatState
 					case 576:
 						defaultCamZoom = 0.8;
 					case 608:
+						FlxG.camera.flash(FlxColor.WHITE, 1);
 						defaultCamZoom = 0.6;		
+						floatvalve2 += 0.01;
 					case 2080:
 						defaultCamZoom = 0.7;
 					case 2088:

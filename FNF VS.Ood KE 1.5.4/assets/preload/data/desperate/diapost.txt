@@ -9,13 +9,14 @@
 :bf:normal: BEEP! BOP! BEEP! BEEP!
 :noChar:default: *bf try to call gf...*
 :noChar:default: *gf turn around*
-:gf:god:
-:gf:god:Shut
-:gf:god:UP!
+:gfgod:normal:....
+:gfgod:normal:Shut
+:gfgod:normal:UP!
 :flash:white
-:bf:normal: Beep Boop?
+:bf:normal: Beep Boop!?
 :odd:god:I also really want to know if your battle with girlfriend will be as funny as I thought so here we go.
 :bf:normal: BOP!
 :sound:police:
 :odd:god:Damn it, it’s the cops again. It’s going to be that damn general again. I’m not wasting any more time on you, boyfriend. I’ll have to go
 :bg:GF
+:noChar:default: To Be Counted.

@@ -48,6 +48,7 @@ class DialogueBox extends FlxSpriteGroup
 	var portraitBF:Portrait;
 	var portraitGF:Portrait;
 	var portraitODD:Portrait;
+	var portraitGFGOD:Portrait;
 	var portraitNOCHAR:Portrait;
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
@@ -167,6 +168,10 @@ class DialogueBox extends FlxSpriteGroup
 
 			portraitGF = new Portrait(170, 120, "gf");
 			add(portraitGF);
+
+			portraitGFGOD = new Portrait(170, 120, "gfgod");
+			add(portraitGFGOD);
+
 
 			portraitODD = new Portrait(100, 85, "odd");
 			add(portraitODD);
@@ -356,6 +361,8 @@ class DialogueBox extends FlxSpriteGroup
 				
 			case "gf":
 				portraitGF.playFrame(curAnim);
+			case "gfgod":
+				portraitGFGOD.playFrame(curAnim);
 			
 			case "odd":
 				portraitODD.playFrame(curAnim);
@@ -502,7 +509,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	function portraitArray(){
 	//Why? i don't know, i was bored and hey it's easier to work with
-	var portraitArray = [portraitBF,portraitGF,portraitODD];
+	var portraitArray = [portraitBF,portraitGF,portraitGFGOD,portraitODD];
 	return portraitArray;
 	}
 	
