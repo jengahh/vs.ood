@@ -129,14 +129,14 @@ class DownscrollOption extends Option
 
 	public override function press():Bool
 	{
-		FlxG.save.data.downscroll = !FlxG.save.data.downscroll;
+		!FlxG.save.data.downscroll;
 		display = updateDisplay();
 		return true;
 	}
 
 	private override function updateDisplay():String
 	{
-		return FlxG.save.data.downscroll ? "Downscroll" : "Upscroll";
+		return FlxG.save.data.downscroll ? "Upscroll" : "Upscroll";
 	}
 }
 

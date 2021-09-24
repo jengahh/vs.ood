@@ -1,6 +1,7 @@
 function start (song)
 	
 	downscroll = false
+    
 	
     for i = 0,3 do 
         tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 370,getActorAngle(i) + 360, 0.1, 'setDefault')

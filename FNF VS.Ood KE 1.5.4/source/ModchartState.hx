@@ -420,6 +420,8 @@ class ModchartState
 				// sprites
 	
 				Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite);
+
+				Lua_helper.add_callback(lua,"useDownscroll", PlayState.instance.forceChange);
 				
 				Lua_helper.add_callback(lua,"changeDadCharacter", changeDadCharacter);
 

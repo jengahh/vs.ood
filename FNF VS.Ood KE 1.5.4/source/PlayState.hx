@@ -355,6 +355,8 @@ class PlayState extends MusicBeatState
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 
+		lastUpdatedDownscroll = PlayStateChangeables.useDownscroll;
+
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
@@ -2427,6 +2429,22 @@ class PlayState extends MusicBeatState
 	public var stopUpdate = false;
 	public var removedVideo = false;
 
+	public var lastUpdatedDownscroll = false;
+
+	public function forceChange(bool:Bool)
+		{
+			trace('changing downscroll to ' + bool);
+			PlayStateChangeables.useDownscroll = bool;
+			lastUpdatedDownscroll = bool;
+			if (PlayStateChangeables.useDownscroll)
+				strumLine.y = FlxG.height - 165
+			else
+				strumLine.y = 50;
+	
+			for(i in strumLineNotes.members)
+				i.y = strumLine.y;
+		}
+
 	override public function update(elapsed:Float)
 	{
 		floatvalve += 0.06;
@@ -4287,6 +4305,21 @@ class PlayState extends MusicBeatState
 						}						
 						
 					}
+				else if (note.noteType == 3)
+						{
+							switch (note.noteData)
+							{
+								case 2:
+									boyfriend.playAnim('hit', true);
+								case 3:
+									boyfriend.playAnim('hit', true);
+								case 1:
+									boyfriend.playAnim('hit', true);
+								case 0:
+									boyfriend.playAnim('hit', true);
+							}						
+							
+						}
 				else
 					{
 						switch (note.noteData)
@@ -4449,6 +4482,7 @@ class PlayState extends MusicBeatState
 	function susnote():Void
 	{
 		var hpgobra:Float = 0;
+		boyfriend.playAnim('hit', true);
 		new FlxTimer().start(0.0001, function(swagTimer:FlxTimer)
 			{
 				health -= 0.0030;
@@ -4543,9 +4577,17 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'desperate')
 			switch (curStep)
 			{
+				
+					
 				case 783 | 903 | 905 | 907 | 909 | 1423:
 					FlxG.camera.flash(FlxColor.WHITE, 1);
 			}
+			if (SONG.song.toLowerCase() == 'probation')
+				switch (curStep)
+				{
+					case 1024 | 1148 | 1280:
+					FlxG.camera.flash(FlxColor.WHITE, 1);
+				}
 			if (SONG.song.toLowerCase() == 'rattatui')
 				switch (curStep)
 				{

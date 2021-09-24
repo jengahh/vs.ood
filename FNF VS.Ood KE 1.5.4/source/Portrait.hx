@@ -15,7 +15,7 @@ class Portrait extends FlxSprite
 
     private var resize = 0.35;
 
-    private var characters:Array<String> = ["bf", "gf", "odd"];
+    private var characters:Array<String> = ["bf", "gf", "odd", "gfgod"];
 
     var posTween:FlxTween;
     var alphaTween:FlxTween;
@@ -58,7 +58,7 @@ class Portrait extends FlxSprite
                 addAnim("normal", "Girlfriend portrait enter instance 1");
                 animation.play("normal");
             case "gfgod":
-                addAnim("normal", "gfgod");
+                addAnim("normal", "gfgod0");
                 animation.play("normal");
             case "odd":
                 addAnim("normal", "Odd1");
