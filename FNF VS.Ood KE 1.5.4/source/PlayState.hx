@@ -4643,6 +4643,8 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 0.1;	
 					case 2147:
 						defaultCamZoom = 0.6;	
+						// haha fuuny fvkin stupid code
+						//by jeng
 				}
 		// yes this updates every step.
 		// yes this is bad
